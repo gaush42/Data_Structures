@@ -37,6 +37,15 @@ public class LinkedList {
         prev.next = temp.next;
 
     }
+    int countList(){
+        int count = 0;
+        Node temp = head;
+        while(temp != null){
+            count++;
+            temp = temp.next;
+        }
+        return count;
+    }
     void printLl(){
         Node temp = head;
         while(temp!=null){
@@ -44,6 +53,16 @@ public class LinkedList {
             temp = temp.next;
         }
         System.out.println();
+    }
+    boolean SearchElement(int x){
+        Node temp = head;
+        while (temp != null){
+            if(temp.data == x){
+                return true;
+            }
+            temp = temp.next;
+        }
+        return false;
     }
 
     public static void main(String[] args) {
@@ -54,8 +73,10 @@ public class LinkedList {
         ll.Add(7);
 
         ll.printLl();
-
+        System.out.println(ll.SearchElement(5));
+        System.out.println(ll.countList());
         ll.DeleteKey(5);
+        System.out.println(ll.SearchElement(5));
         ll.printLl();
     }
 }
