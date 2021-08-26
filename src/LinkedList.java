@@ -21,12 +21,29 @@ public class LinkedList {
         }
         temp.next = toAdd;
     }
+    void DeleteKey(int k){
+        Node temp = head, prev = null;
+        if(temp == null){
+            return;
+        }
+        if(temp != null && temp.data == k){
+            head = temp.next;
+            return;
+        }
+        while(temp != null && temp.data != k){
+            prev = temp;
+            temp = temp.next;
+        }
+        prev.next = temp.next;
+
+    }
     void printLl(){
         Node temp = head;
         while(temp!=null){
             System.out.print(temp.data + "->");
             temp = temp.next;
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {
@@ -36,6 +53,9 @@ public class LinkedList {
         ll.Add(5);
         ll.Add(7);
 
+        ll.printLl();
+
+        ll.DeleteKey(5);
         ll.printLl();
     }
 }

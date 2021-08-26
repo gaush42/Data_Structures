@@ -48,13 +48,15 @@ public class MergeSort {
     }
     static void PrintArray(int[] arr){
         for(int i=0; i<arr.length;i++){
-            System.out.println(arr[i]);
+            System.out.print(arr[i]+" ");
         }
     }
 
     public static void main(String[] args) {
         int arr[] = {12, 11, 13, 5, 6, 7};
         int n = arr.length;
+        System.out.println(n);
+        System.out.println(n-1);
         MergeSort(arr,0,n-1);
         PrintArray(arr);
     }
