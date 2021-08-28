@@ -77,6 +77,45 @@ public class LinkedList {
         }
         return false;
     }
+    void MiddleLinkedList(int count){
+        Node temp = head;
+        int middle = count/2;
+        while(middle>0)
+        {
+            temp = temp.next;
+            middle--;
+        }
+        System.out.println("The middle element is " + temp.data );
+    }
+    void InsertData(int data, int pos){
+        Node Insert = new Node(data);
+        Node prev = null;
+        Node temp = head;
+
+        if (head == null) {
+            //if head is null and position is zero then exit.
+            if (pos != 0) {
+                return;
+            } else { //node set to the head.
+                temp = Insert;
+            }
+        }
+
+        if (head != null && pos == 0) {
+            head = Insert;
+            head.next = temp;
+            return;
+        }
+
+        while(pos > 0){
+            prev = temp;
+            temp = temp.next;
+            pos--;
+        }
+        Insert.next = temp;
+        prev.next = Insert;
+
+    }
     void printLl(){
         Node temp = head;
         while(temp!=null){
@@ -92,14 +131,17 @@ public class LinkedList {
         ll.Add(3);
         ll.Add(5);
         ll.Add(7);
+        //ll.Add(9);
 
         ll.printLl();
+        ll.MiddleLinkedList(ll.countList());
         //System.out.println(ll.SearchElement(5));
         //System.out.println(ll.countList());
         //ll.DeleteKey(5);
         //System.out.println(ll.SearchElement(5));
         //ll.DeleteList();
-        ll.DeleteNode(2);
+        //ll.DeleteNode(2);
+        ll.InsertData(2,0);
         ll.printLl();
     }
 }
