@@ -37,6 +37,27 @@ public class LinkedList {
         prev.next = temp.next;
 
     }
+    void DeleteNode(int position){
+        Node temp = head;
+        if(head == null || temp == null || temp.next == null){
+            return;
+        }
+        if(position == 0){
+            head = temp.next;
+            return;
+        }
+        for(int i = 0; i<position-1; i++){
+            if(temp != null){
+                temp = temp.next;
+            }
+        }
+        Node next = temp.next.next;
+        temp.next = next;
+
+    }
+    void DeleteList(){
+        head = null;
+    }
     int countList(){
         int count = 0;
         Node temp = head;
@@ -45,14 +66,6 @@ public class LinkedList {
             temp = temp.next;
         }
         return count;
-    }
-    void printLl(){
-        Node temp = head;
-        while(temp!=null){
-            System.out.print(temp.data + "->");
-            temp = temp.next;
-        }
-        System.out.println();
     }
     boolean SearchElement(int x){
         Node temp = head;
@@ -64,6 +77,14 @@ public class LinkedList {
         }
         return false;
     }
+    void printLl(){
+        Node temp = head;
+        while(temp!=null){
+            System.out.print(temp.data + "->");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
@@ -73,10 +94,12 @@ public class LinkedList {
         ll.Add(7);
 
         ll.printLl();
-        System.out.println(ll.SearchElement(5));
-        System.out.println(ll.countList());
-        ll.DeleteKey(5);
-        System.out.println(ll.SearchElement(5));
+        //System.out.println(ll.SearchElement(5));
+        //System.out.println(ll.countList());
+        //ll.DeleteKey(5);
+        //System.out.println(ll.SearchElement(5));
+        //ll.DeleteList();
+        ll.DeleteNode(2);
         ll.printLl();
     }
 }
