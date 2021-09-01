@@ -9,19 +9,19 @@ public class Queue {
         capacity = Size;
         queue = new int[capacity];
     }
-    static boolean IsEmpty(){
+    boolean IsEmpty(){
         if(front == rear){
             return true;
         }
         return false;
     }
-    static boolean IsFull(){
+    boolean IsFull(){
         if(capacity == rear){
             return true;
         }
         return false;
     }
-    static void enQueue(int data){
+    void enQueue(int data){
         if(IsFull()){
             System.out.println("Queue Full");
             return;
@@ -31,7 +31,7 @@ public class Queue {
         }
         //return;
     }
-    static void deQueue(){
+    void deQueue(){
         if(IsEmpty()){
             System.out.println("Queue is Empty");
             return;
@@ -46,10 +46,10 @@ public class Queue {
         }
         //return;
     }
-    static void FrontAndRear(){
+    void FrontAndRear(){
         System.out.println("Front "+ queue[front]+" Rear "+ queue[rear-1]);
     }
-    static void Traverse(){
+    void Traverse(){
         if(IsEmpty()){
             System.out.println("Queue is Empty");
             return;
@@ -64,25 +64,25 @@ public class Queue {
 
     public static void main(String[] args) {
         Queue q = new Queue(4);
-        Traverse();
-        enQueue(3);
-        enQueue(1);
-        enQueue(6);
-        enQueue(4);
-        Traverse();
-        FrontAndRear();
-        deQueue();
-        Traverse();
-        deQueue();
-        deQueue();
-        deQueue();
-        deQueue();
-        Traverse();
-        enQueue(2);
-        enQueue(2);
-        enQueue(2);
-        enQueue(2);
-        enQueue(2);
-        Traverse();
+        q.Traverse();
+        q.enQueue(3);
+        q.enQueue(1);
+        q.enQueue(6);
+        q.enQueue(4);
+        q.Traverse();
+        q.FrontAndRear();
+        q.deQueue();
+        q.Traverse();
+        q.deQueue();
+        q.deQueue();
+        q.deQueue();
+        q.deQueue();
+        q.Traverse();
+        q.enQueue(2);
+        q.enQueue(2);
+        q.enQueue(2);
+        q.enQueue(2);
+        q.enQueue(2);
+        q.Traverse();
     }
 }
