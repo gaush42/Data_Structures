@@ -52,8 +52,10 @@ public class Stack {
         System.out.println(s.IsEmpty());
         s.Push(2);
         s.Push(4);
+        System.out.println(s.IsFull());
         s.Push(6);
         s.Push(8);
+        System.out.println(s.IsFull());
         s.Traverse();
         s.Peek();
         s.Pop();
