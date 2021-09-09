@@ -1,10 +1,10 @@
-import java.util.Locale;
+import java.util.*;
 
 public class basic_mics {
 
-    static void Factorial(){ //  TC=O(N) SC=O(1)
+    static void Factorial(int n){ //  TC=O(N) SC=O(1)
         int fact = 1;
-        for(int i = 1; i<=6; i++){
+        for(int i = 1; i<=n; i++){
             fact = fact*i;
         }
         System.out.println(fact);
@@ -67,6 +67,34 @@ public class basic_mics {
             System.out.println("Not Palindrome");
         }
     }
+    static void isPrime()
+    {
+        Scanner in = new Scanner(System.in);
+        int start = in.nextInt();
+        int end = in.nextInt();
+        int count;
+        for(int i = start ; i <= end ; i++)
+        {
+            //logic for checking number is prime or not
+            count = 0;
+            for(int j = 1 ; j <= i ; j++)
+            {
+                if(i % j == 0)
+                    count = count+1;
+            }
+            if(count == 2)
+                System.out.print(i+" ");
+        }
+    }
+    static void Permutation(){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int r = sc.nextInt();
+        int pn = RecursiveFact(n);
+        int pr = RecursiveFact(n-r);
+        System.out.print(pn/pr);
+    }
+
     public static void main(String[] args) {
         //Factorial();
         //System.out.println(RecursiveFact(6));
@@ -74,6 +102,8 @@ public class basic_mics {
         //Swap();
         //Palindrome();
         //ReverseString();
-        ReverseSentence();
+        //ReverseSentence();
+        //isPrime();
+        //Permutation();
     }
 }

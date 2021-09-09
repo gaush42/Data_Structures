@@ -29,11 +29,29 @@ public class sorting {
             System.out.println(arr[i]);
         }
     }
+    void SelectionSort(int[] arr){
+         int n=arr.length;
+         for(int i=0;i<n-1;i++){
+             int min_index=i;
+             for(int j=i+1;j<n;j++){
+                 if(arr[j]<arr[min_index]){
+                     min_index=j;
+                 }
+             }
+             int t = arr[min_index];
+             arr[min_index] = arr[i];
+             arr[i] = t;
+         }
+        for(int i = 0; i<n; i++) {
+            System.out.print(arr[i]+" ");
+        }
+    }
 
     public static void main(String[] args) {
         int arr[] = {2,4,8,1,4,6,3};
         sorting s = new sorting();
         //s.BubbleSort(arr);
-        s.InsertionSort(arr);
+        //s.InsertionSort(arr);
+        s.SelectionSort(arr);
     }
 }

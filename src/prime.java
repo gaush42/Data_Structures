@@ -2,23 +2,27 @@ import java.util.*;
 
 public class prime {
 
-    static boolean isPrime(int n)
+    static void isPrime()
     {
-        if (n <= 1)
-            return false;
-        for (int i = 2; i < n; i++)
-            if (n % i == 0)
-                return false;
-        return true;
+        Scanner in = new Scanner(System.in);
+        int start = in.nextInt();
+        int end = in.nextInt();
+        int count;
+        for(int i = start ; i <= end ; i++)
+        {
+            //logic for checking number is prime or not
+            count = 0;
+            for(int j = 1 ; j <= i ; j++)
+            {
+                if(i % j == 0)
+                    count = count+1;
+            }
+            if(count == 2)
+                System.out.print(i+" ");
+        }
     }
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int num = in.nextInt();
 
-        for (int i = 2; i <= num; i++)
-        {
-            if (isPrime(i))
-                System.out.print(i + " ");
-        }
+        isPrime();
     }
 }

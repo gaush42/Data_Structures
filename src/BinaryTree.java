@@ -49,7 +49,7 @@ public class BinaryTree {
             System.out.print(" " + node.value);
         }
     }
-    public void levelOrderTraversal(Node startNode) {
+    /*public void levelOrderTraversal(Node startNode) {
         Queue<Node> queue=new LinkedList<Node>();
         queue.add(startNode);
         while(!queue.isEmpty())
@@ -61,7 +61,7 @@ public class BinaryTree {
             if(tempNode.right!=null)
                 queue.add(tempNode.right);
         }
-    }
+    }*/
 
     public static void main(String[] args) {
         BinaryTree bt = new BinaryTree();
