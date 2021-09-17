@@ -1,9 +1,15 @@
 public class Pattern {
 
     public static void main(String[] args) {
-        for(int i=5;i>0;i--){
-            for(int j=0;j<i;j++){
-                System.out.print(i);
+        int t=0;
+        for(int i=1;i<=5;i++,t=0){
+            for(int j=1;j<=5-i;j++){
+                System.out.print(" ");
+            }
+            //System.out.print("*");
+            while(t!=2*i-1){
+                System.out.print("*");
+                t++;
             }
             System.out.println();
         }
