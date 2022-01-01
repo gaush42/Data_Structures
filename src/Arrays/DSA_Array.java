@@ -167,17 +167,121 @@ class DSA_Array{
             t--;
         }
     }
+    public static void removeDuplicates (char[] arg) {
+        // return result;
+        int start = 0;
+        int end = arg.length-1;
+
+        LinkedHashSet ch = new LinkedHashSet();
+        while(start<end){
+            char t = arg[start];
+            arg[start] = arg[end];
+            arg[end] = t;
+            start++;
+            end--;
+        }
+        for(int i=0;i<arg.length;i++){
+            ch.add(arg[i]);
+        }
+        //Object[] objects = ch.toArray();
+        String s = ch.toString();
+
+        char[] cc = s.toCharArray();
+        start = 0;
+        end = cc.length-1;
+        while(start<end){
+            char t = cc[start];
+            cc[start] = cc[end];
+            cc[end] = t;
+            start++;
+            end--;
+        }
+
+        for(int i=0;i<cc.length;i++){
+            System.out.print(cc[i]);
+        }
+        //System.out.println(s);
+
+        //return cc;
+
+
+    }
+    public static void countWordOccurrences (String text) {
+        // return "dog,1\ncat,2";
+        int i,len,count,j,k;
+        String word, result;
+
+        String newText = text.replaceAll("[?!,.]","");
+        String lText = newText.toLowerCase();
+
+        String words[] = lText.split(" ");
+        len = words.length;
+
+        for(i=0;i<len;i++){
+            word = words[i];
+            count=1;
+            for(j=(i+1); j<(len-1);j++){
+                if(word.equals(words[j])){
+                    count++;
+                    for(k=j; k<(len-1);k++){
+                        words[k] = words[k+1];
+                    }
+                    len--;
+                    j--;
+                }
+            }
+            System.out.println(word+ " occurs " +count);
+            count = 0;
+        }
+    }
+    public static void ReverseSentence(){
+        String input = "   Hello How       are you   ";
+        //String Space = input.replaceAll("\\s+"," ");
+        String strArrray[] = input.split(" ");
+        String output = "";
+
+        for(int i=strArrray.length;i>0;i--){
+            output = output +" " +strArrray[i-1];
+        }
+        output = output.replaceAll("\\s+"," ");
+        System.out.println(output);
+        for(int i=0;i<strArrray.length;i++){
+            System.out.println(strArrray[i]);
+        }
+    }
+    public static int Reverse_Int(int x){
+        int sign = x < 0 ? -1 : 1;
+        x = Math.abs(x);
+        int res = 0;
+        while (x > 0) {
+            if (Integer.MAX_VALUE / 10 < res || (Integer.MAX_VALUE - x % 10) < res * 10) {
+                return 0;
+            }
+            res = res * 10 + x % 10;
+            x /= 10;
+        }
+
+        return sign * res;
+    }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int[] arr = {7,9,2,4,6,3};
+        //Scanner sc = new Scanner(System.in);
+        //int[] arr = {7,9,2,4,6,3};
         //ReverseArray(arr);
-        MaxAndMin(arr);
+        //MaxAndMin(arr);
         //KthMinAndMax(arr);
         //Sort012();
         //NegativeElimentOneSide();
         //Union();
         //RotateArrayByOne();
         //TravelPass();
+        //char[] a = {'a', 'b', 'a', 'b', 'c', 'd', 'd', 'e', 'a', 'd'};
+        //char[] b = removeDuplicates(a);
+        //removeDuplicates(a);
+        //String s = "Hey How, you you hey, yo?";
+        //System.out.println(countWordOccurrences(s));
+        //ReverseSentence();
+        //System.out.println(Reverse_Int(-1534236469));
+
     }
 }

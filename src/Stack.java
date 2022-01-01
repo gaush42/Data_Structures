@@ -1,6 +1,6 @@
 public class Stack {
-    static int size,topElement;
-    static int[] stack;
+    int size,topElement;
+    int[] stack;
 
     Stack(int Capacity){
         size = Capacity;
@@ -8,9 +8,11 @@ public class Stack {
         stack = new int[size];
     }
     boolean IsEmpty(){
+
         return (topElement == -1);
     }
     boolean IsFull(){
+
         return (size-1 == topElement);
     }
     void Push(int data){

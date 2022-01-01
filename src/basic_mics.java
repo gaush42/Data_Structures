@@ -6,6 +6,7 @@ public class basic_mics {
         int fact = 1;
         for(int i = 1; i<=n; i++){
             fact = fact*i;
+            System.out.println(fact);
         }
         System.out.println(fact);
     }
@@ -13,6 +14,7 @@ public class basic_mics {
         if(n==0){
             return 1;
         }
+        System.out.println(n);
         return (n*RecursiveFact(n-1));
     }
     static void Fibonacci(){ // TC=O(N)
@@ -51,7 +53,7 @@ public class basic_mics {
         }
         System.out.print(rev);
     }
-    static void Palindrome(){
+    static void PalindromeString(){
         String str, rev="";
         str="Radar";
         int len = str.length();
@@ -94,16 +96,55 @@ public class basic_mics {
         int pr = RecursiveFact(n-r);
         System.out.print(pn/pr);
     }
+    static void PalindromeNumber(){
+        int a = 12321;
+        int t = a;
+        int b = 0;
+        while(t!=0){
+            int r = t%10;
+            b=b*10+r;
+            t /= 10;
+            System.out.println("r = " + r+" b = "+b+" t = "+t);
+        }
+        if(a==b){
+            System.out.println("YES");
+        }else{
+            System.out.println("NO");
+        }
+    }
+    static int gcd(int x, int y){
+        if(x==y){
+            return x;
+        }
+        int dividend = x > y ? x : y;
+        int divisor = x > y ? y : x;
+        while(divisor != 0){
+            int rem = dividend % divisor;
+            dividend = divisor;
+            divisor = rem;
+        }
+        return dividend;
+    }
+    static void CoPrime(int x, int y){
+        if(x!=0 || y!=0){
+            while(gcd(x,y)!=1){
+                x=x/gcd(x,y);
+            }
+        }
+        System.out.println(x);
+    }
 
     public static void main(String[] args) {
-        //Factorial();
+        //Factorial(7);
         //System.out.println(RecursiveFact(6));
         //Fibonacci();
         //Swap();
-        //Palindrome();
+        //PalindromeString();
+        //PalindromeNumber();
         //ReverseString();
         //ReverseSentence();
         //isPrime();
         //Permutation();
+        //CoPrime(13,13);
     }
 }

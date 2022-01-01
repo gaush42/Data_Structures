@@ -21,7 +21,7 @@ public class LinkedList {
         }
         temp.next = toAdd;
     }
-    void DeleteKey(int k){
+    void DeleteData(int k){
         Node temp = head, prev = null;
         if(temp == null){
             return;
@@ -58,6 +58,7 @@ public class LinkedList {
     void DeleteList(){
         head = null;
     }
+
     int countList(){
         int count = 0;
         Node temp = head;
@@ -116,6 +117,31 @@ public class LinkedList {
         prev.next = Insert;
 
     }
+    Node ReverseLinkedList(Node node){
+        Node prev = null;
+        Node current = node;
+        Node next = null;
+        while(current != null){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        node = prev;
+        return node;
+    }
+    boolean DetectLoop(){
+        Node slow_p = head;
+        Node fast_p = head;
+        while(slow_p != null && fast_p != null && fast_p.next != null){
+            slow_p = slow_p.next;
+            fast_p = fast_p.next.next;
+            if(slow_p == fast_p){
+                return true;
+            }
+        }
+        return false;
+    }
     void printLl(){
         Node temp = head;
         while(temp!=null){
@@ -131,17 +157,22 @@ public class LinkedList {
         ll.Add(3);
         ll.Add(5);
         ll.Add(7);
-        //ll.Add(9);
+        ll.Add(9);
 
         ll.printLl();
         ll.MiddleLinkedList(ll.countList());
         //System.out.println(ll.SearchElement(5));
         //System.out.println(ll.countList());
-        //ll.DeleteKey(5);
+        ll.DeleteData(5);
         //System.out.println(ll.SearchElement(5));
         //ll.DeleteList();
         //ll.DeleteNode(2);
         ll.InsertData(2,0);
         ll.printLl();
+        ll.head = ll.ReverseLinkedList(ll.head);
+        //ll.ReverseLinkedList(ll.head);
+        ll.printLl();
+        ll.head.next.next.next = ll.head;
+        System.out.println(ll.DetectLoop());
     }
 }

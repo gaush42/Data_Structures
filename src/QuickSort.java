@@ -4,7 +4,7 @@ public class QuickSort {
         arr[i] = arr[j];
         arr[j] = temp;
     }
-    static int Partition(int[] arr, int low, int high){
+    /*static int Partition(int[] arr, int low, int high){
         int pivot = arr[high];
         int i = low -1;
 
@@ -23,10 +23,31 @@ public class QuickSort {
             QuickSort(arr, low, p-1);
             QuickSort(arr, p+1, high);
         }
+    }*/
+
+    static int Partition(int[] arr, int low, int high){
+        int pivot = arr[high];
+        int i=(low-1);
+        for(int j=low; j<=high-1;j++){
+            if(arr[j]<pivot){
+                i++;
+                Swap(arr,i,j);
+            }
+        }
+        Swap(arr, i+1, high);
+        return i+1;
+    }
+
+    static void QuickSort(int[]arr,int low, int high){
+        if(low<high){
+            int p = Partition(arr, low, high);
+            QuickSort(arr, low, p-1);
+            QuickSort(arr, p+1, high);
+        }
     }
     static void PrintArray(int[] arr){
         for(int i=0; i<arr.length;i++){
-            System.out.println(arr[i]);
+            System.out.print(arr[i] + " ");
         }
     }
 

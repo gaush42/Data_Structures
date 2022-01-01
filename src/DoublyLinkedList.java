@@ -24,7 +24,14 @@ public class DoublyLinkedList {
         tail = newNode;
         tail.next = null;
     }
-    void PrintList(){
+    void PrintListRev(){
+        Node temp = tail;
+        while (temp!=null){
+            System.out.print(temp.data + " ");
+            temp = temp.prev;
+        }
+    }
+    void PrintLisfwd(){
         Node temp = head;
         while (temp!=null){
             System.out.print(temp.data + " ");
@@ -40,6 +47,7 @@ public class DoublyLinkedList {
         dll.add(5);
         dll.add(3);
 
-        dll.PrintList();
+        dll.PrintListRev();
+        dll.PrintLisfwd();
     }
 }

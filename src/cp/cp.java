@@ -38,7 +38,34 @@ public class cp {
 
     }
 
+
+    //Utkarsh and Placement tests December 2021 Long codechef
+    public static void Placement(){
+        Scanner input = new Scanner(System.in);
+        int t=0;
+        if(input.hasNextInt()){
+            t = input.nextInt();
+        }
+        while(t>0){
+            int j=0;
+            char[] preferenceOrder = input.next().toCharArray();
+            char[] offerLetter = input.next().toCharArray();
+
+            for(int i=0; i< 3;i++){
+                System.out.println(j);
+                if(preferenceOrder[i] == offerLetter[j]){
+                    System.out.println(preferenceOrder[i]);
+                    break;
+
+                }
+                j++;
+            }
+            t--;
+        }
+    }
     public static void main(String[] args) {
-        TravelPass();
+
+        //TravelPass();
+        Placement();
     }
 }
