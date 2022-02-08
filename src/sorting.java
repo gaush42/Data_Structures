@@ -1,10 +1,10 @@
 import java.util.*;
 
 public class sorting {
-     void BubbleSort(int[] arr){
-        for(int i=0; i<arr.length; i++){
-            for(int j=0; j<arr.length; j++){
-                if(arr[i]<arr[j]){
+     void BubbleSort(int[] arr){                    //TC O(N^2)
+        for(int i=0; i<arr.length; i++){            //In Place Sorting
+            for(int j=0; j<arr.length; j++){        //Stable
+                if(arr[i]<arr[j]){                  //AS O(1)
                     int temp = arr[i];
                     arr[i] = arr[j];
                     arr[j] = temp;
@@ -12,27 +12,29 @@ public class sorting {
             }
         }
         for(int i = 0; i<arr.length; i++){
-            System.out.println(arr[i]);
+            System.out.print(arr[i]+" ");
         }
+         System.out.println();
     }
     void InsertionSort(int[] arr){
-         for(int i = 1; i<arr.length; i++){
-             int temp = arr[i];
-             int j = i-1;
-             while(j >= 0 && temp <= arr[j]){
+         for(int i = 1; i<arr.length; i++){         //TC O(N^2)
+             int temp = arr[i];                     //AS O(1)
+             int j = i-1;                           //In Place Sorting
+             while(j >= 0 && temp <= arr[j]){       //Stable
                  arr[j+1]=arr[j];
                  j=j-1;
              }
              arr[j+1] = temp;
          }
         for(int i = 0; i<arr.length; i++) {
-            System.out.println(arr[i]);
+            System.out.print(arr[i]+" ");
         }
+        System.out.println();
     }
-    void SelectionSort(int[] arr){
-         int n=arr.length;
-         for(int i=0;i<n-1;i++){
-             int min_index=i;
+    void SelectionSort(int[] arr){              //TC O(N^2)
+         int n=arr.length;                      //AS O(1)
+         for(int i=0;i<n;i++){                //Unstable
+             int min_index=i;                   //In Place Sorting
              for(int j=i+1;j<n;j++){
                  if(arr[j]<arr[min_index]){
                      min_index=j;
@@ -45,6 +47,7 @@ public class sorting {
         for(int i = 0; i<n; i++) {
             System.out.print(arr[i]+" ");
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {

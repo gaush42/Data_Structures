@@ -14,7 +14,7 @@ public class basic_mics {
         if(n==0){
             return 1;
         }
-        System.out.println(n);
+        //System.out.println(n);
         return (n*RecursiveFact(n-1));
     }
     static void Fibonacci(){ // TC=O(N)
@@ -94,10 +94,13 @@ public class basic_mics {
         int r = sc.nextInt();
         int pn = RecursiveFact(n);
         int pr = RecursiveFact(n-r);
+        for(int  i=0;i<n-1;i++){
+            System.out.print(pn/pr+" ");
+        }
         System.out.print(pn/pr);
     }
     static void PalindromeNumber(){
-        int a = 12321;
+        int a = 3200;
         int t = a;
         int b = 0;
         while(t!=0){
@@ -111,6 +114,7 @@ public class basic_mics {
         }else{
             System.out.println("NO");
         }
+        System.out.println(b);
     }
     static int gcd(int x, int y){
         if(x==y){
@@ -144,7 +148,7 @@ public class basic_mics {
         //ReverseString();
         //ReverseSentence();
         //isPrime();
-        //Permutation();
+        Permutation();
         //CoPrime(13,13);
     }
 }

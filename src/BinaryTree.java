@@ -34,6 +34,7 @@ public class BinaryTree {
             System.out.print(" " + node.value);
             traverseInOrder(node.right);
         }
+        //System.out.println();
     }
     public void traversePreOrder(Node node) {
         if (node != null) {
@@ -41,6 +42,7 @@ public class BinaryTree {
             traversePreOrder(node.left);
             traversePreOrder(node.right);
         }
+        //System.out.println();
     }
     public void traversePostOrder(Node node) {
         if (node != null) {
@@ -48,6 +50,7 @@ public class BinaryTree {
             traversePostOrder(node.right);
             System.out.print(" " + node.value);
         }
+        //System.out.println();
     }
     /*public void levelOrderTraversal(Node startNode) {
         Queue<Node> queue=new LinkedList<Node>();
@@ -78,5 +81,9 @@ public class BinaryTree {
         bt.insert(root, 9);
         System.out.println("Traversing tree in order");
         bt.traverseInOrder(root);
+        System.out.println();
+        bt.traversePostOrder(root);
+        System.out.println();
+        bt.traversePreOrder(root);
     }
 }
