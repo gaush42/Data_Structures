@@ -39,7 +39,7 @@ public class Graph_Implementation {
         int cur = destination;
         int distance = 0;
         while(parent[cur] != -1){
-            System.out.print(cur+"->");
+            System.out.print(cur+" -> ");
             cur = parent[cur];
             distance++;
         }
@@ -65,10 +65,10 @@ public class Graph_Implementation {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter c an e");
+        System.out.println("Enter v an e");
         int v = sc.nextInt();
         int e = sc.nextInt();
-        System.out.println("Enter " + e + "edges");
+        System.out.println("Enter " + e + " edges");
         Graph_Implementation graph = new Graph_Implementation(v);
         for(int i=0;i<e;i++){
             int source = sc.nextInt();
@@ -80,9 +80,10 @@ public class Graph_Implementation {
         int source = sc.nextInt();
         int destination = sc.nextInt();
 
-        //int dis = graph.BFS(source, destination);
-        //System.out.println("min dis "+ dis);
-        System.out.println(graph.DFS(source,destination));
+        int dis = graph.BFS(source, destination);
+        System.out.println("min dis "+ dis);
+        //System.out.println(graph.DFS(source,destination));
+
         sc.close();
     }
 }

@@ -1,3 +1,10 @@
+/*
+* A stack is a linear data structure that follows the principle of Last In First Out (LIFO).
+* This means the last element inserted inside the stack is removed first.
+* For the array-based implementation of a stack,
+* the push and pop operations take constant time, i.e. O(1).
+ **/
+
 public class Stack {
     int size,topElement;
     int[] stack;
@@ -26,9 +33,10 @@ public class Stack {
     int Pop(){
         if (!IsEmpty()) {
             int returnedtopElement = topElement;
-            topElement--;
+            //topElement--;
             System.out.println("Element Popped from Stack is :" + stack[returnedtopElement]);
-            return stack[returnedtopElement];
+            //return stack[returnedtopElement];
+            return stack[topElement--];
         } else {
             System.out.println("Stack is empty...");
             return -1;
